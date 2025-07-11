@@ -1,7 +1,7 @@
 # 🎯 Gesture-Controlled Volume Adjustment  
 *Using CC3200 LaunchPad + Ultrasonic Sensor + Android App*  
 
-![Project Banner](https://via.placeholder.com/800x200/2a2a72/FFFFFF?text=Gesture+Volume+Control+System) *(Replace with actual project image)*  
+![Project Banner](<img width="1493" height="856" alt="image" src="https://github.com/user-attachments/assets/83b9a2c3-d337-47d5-b6bd-dfe95ffa614b" />)
 
 ---
 
@@ -12,7 +12,6 @@
 - [Installation Guide](#-installation-guide)  
 - [How to Run](#-how-to-run)  
 - [Code Structure](#-code-structure)  
-- [Evaluation](#-evaluation)  
 
 ---
 
@@ -34,8 +33,8 @@ A smart system that:
 | Component           | Quantity | Notes                          |  
 |---------------------|----------|--------------------------------|  
 | CC3200 LaunchPad    | 1        | Wi-Fi enabled microcontroller  |  
-| HC-SR04 Sensor      | 1        | For distance measurement       |  
-| Jumper Wires        | 4        | VCC, GND, Trig, Echo           |  
+| Ultrasonic Sensor   | 1        | For distance measurement       |  
+| Jumper cable        | 1        | VCC, GND, Trig, Echo           |  
 | Micro-USB Cable     | 1        | For power and programming      |  
 
 ---
@@ -50,7 +49,7 @@ A smart system that:
 - Open the provided `Android_app` project  
 
 ### 3. Google Forms (Survey)  
-- Create your form [here](https://forms.google.com)  
+- Create your form [here]([https://forms.google.com](https://docs.google.com/forms/d/e/1FAIpQLSc81LrK-BMuI_YL7YnHIu7k_sjG8p39c47EGHD46PVpbT4Fgw/viewform?usp=header))  
 
 ---
 
@@ -64,8 +63,38 @@ A smart system that:
 | Echo       | P2.2       |  
 
 ### Firmware Setup  
-1. Open `ultrasonic_http.ino` in Energia  
+1. Open `GestureContrrolApp.ino` in Energia  
 2. Update Wi-Fi credentials:  
 ```cpp
 const char* ssid = "YOUR_WIFI";  
-const char* password = "YOUR_PASSWORD";  
+const char* password = "YOUR_PASSWORD";
+```
+
+---
+
+## 💻 How to Run
+### 1. Power the CC3200 (check Serial Monitor for Wi-Fi status)
+
+### 2. Launch Android app and verify connection
+
+Gesture Control:
+
+👆 Hand closer → Volume decreases
+
+✋ Hand farther → Volume increases
+
+---
+
+## 💻 Code Structure
+
+GestureControlApp/  
+│  
+├── /Energia_code/                                           # CC3200 Firmware  
+│   ├── GestureContrrolApp.ino                               # Main logic + HTTP server  
+│  
+├── /Android_app/                                            # Android Studio Project  
+│   ├── MainActivity.java                                    # HTTP client for volume control  
+│  
+├── /GestureControlApp_Bharath Subramaniam Jayakumar.pdf/    # Presentation  
+│  
+└── README.md                                                # This file  
