@@ -1,7 +1,8 @@
 # 🎯 Gesture-Controlled Volume Adjustment  
 *Using CC3200 LaunchPad + Ultrasonic Sensor + Android App*  
 
-![Project Banner](<img width="1493" height="856" alt="image" src="https://github.com/user-attachments/assets/83b9a2c3-d337-47d5-b6bd-dfe95ffa614b" />)
+<img width="1493" height="856" alt="image" src="https://github.com/user-attachments/assets/62d83be7-f0d1-43e6-af5f-dd29b7ee1e9c" />
+
 
 ---
 
