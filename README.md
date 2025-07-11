@@ -10,17 +10,21 @@
 - [Project Overview](#-project-overview)  
 - [Hardware Requirements](#-hardware-requirements)  
 - [Software Setup](#-software-setup)  
-- [Installation Guide](#-installation-guide)  
+- [Installation Guide](#-installation-guide)
+- [Software Configuration](#-software-configuration)
 - [How to Run](#-how-to-run)  
-- [Code Structure](#-code-structure)  
+- [Code Structure](#-code-structure)
+- [Evaluation](#-evaluation)
 
 ---
 
 ## 🔍 Project Overview  
-A smart system that:  
-- 📏 Measures hand distance using an **ultrasonic sensor**  
-- 📱 Communicates with an **Android app via HTTP** to adjust device volume  
-- 📊 Collects user feedback via **Google Forms**  
+An ESP32-based system that:  
+- 📏 Measures hand distance using **Grove Ultrasonic Sensor** (single-pin mode)  
+- 🌐 Hosts a web server with:  
+  - Real-time JSON API (`/sensor`)  
+  - Visual web interface (`/`)  
+- 📱 Connects to Android/iOS devices via WiFi   
 
 **Key Components**:  
 | Type       | Components                          |
@@ -31,18 +35,17 @@ A smart system that:
 ---
 
 ## 🛠️ Hardware Requirements  
-| Component           | Quantity | Notes                          |  
-|---------------------|----------|--------------------------------|  
-| CC3200 LaunchPad    | 1        | Wi-Fi enabled microcontroller  |  
-| Ultrasonic Sensor   | 1        | For distance measurement       |  
-| Jumper cable        | 1        | VCC, GND, Trig, Echo           |  
-| Micro-USB Cable     | 1        | For power and programming      |  
+| Component               | Connection        |  
+|-------------------------|-------------------|  
+| ESP32 Dev Board         | Base microcontroller |  
+| Grove Ultrasonic Sensor | GPIO24 (Single-pin mode) |  
+| Micro-USB Cable         | Power/Programming |  
 
 ---
 
 ## 💻 Software Setup  
 ### 1. Energia IDE (CC3200 Programming)  
-- Download [Energia IDE](http://energia.nu/download/)  
+- Download [Energia IDE]([http://energia.nu/download/](https://energia.nu/download/))  
 - Install CC3200 board support via **Tools → Board → Boards Manager**  
 
 ### 2. Android Studio (Companion App)  
@@ -63,13 +66,18 @@ A smart system that:
 | Trig       | P2.1       |  
 | Echo       | P2.2       |  
 
-### Firmware Setup  
-1. Open `GestureContrrolApp.ino` in Energia  
-2. Update Wi-Fi credentials:  
-```cpp
-const char* ssid = "YOUR_WIFI";  
-const char* password = "YOUR_PASSWORD";
-```
+
+
+---
+
+## 💻 Software Configuration  
+### 1. Upload Firmware  
+1. Install [ESP32 board support](https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html) in Arduino IDE/Energia  
+2. Copy this code to your IDE:  
+   ```cpp
+   #define ULTRASONIC_PIN 24  // Grove sensor on GPIO24
+   char ssid[] = "YourWiFiSSID";
+   char password[] = "YourWiFiPassword";
 
 ---
 
@@ -99,3 +107,9 @@ GestureControlApp/
 ├── /GestureControlApp_Bharath Subramaniam Jayakumar.pdf/    # Presentation  
 │  
 └── README.md                                                # This file  
+
+---
+
+## 💻 Evaluation
+Help us improve by completing survey:
+[https://forms.google.com](https://docs.google.com/forms/d/e/1FAIpQLSc81LrK-BMuI_YL7YnHIu7k_sjG8p39c47EGHD46PVpbT4Fgw/viewform?usp=header)
